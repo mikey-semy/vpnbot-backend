@@ -1,0 +1,68 @@
+[project]
+dependencies = [
+  "aiogram>=3.19.0",
+  "alembic>=1.15.1",
+  "asyncpg>=0.30.0",
+  "bcrypt>=4.3.0",
+  "dishka>=1.5.0",
+  "fastapi[all]>=0.115.12",
+  "fluent-runtime>=0.4.0",
+  "passlib>=1.7.4",
+  "pre-commit>=4.2.0",
+  "pydantic-settings>=2.8.1",
+  "python-jose>=3.4.0",
+  "pytz>=2025.2",
+  "sqlalchemy>=2.0.40",
+  "tenacity>=9.0.0",
+  "types-pytz>=2025.2.0.20250326",
+  "uvicorn>=0.34.0",
+]
+description = "Add your description here"
+name = "vpn-bot-backend"
+readme = "README.md"
+requires-python = ">=3.12"
+version = "0.1.0"
+
+[project.scripts]
+check = "scripts.commands:check"
+dev = "scripts.commands:dev"
+format = "scripts.commands:format"
+lint = "scripts.commands:lint"
+migrate = "scripts.commands:migrate"
+prod = "scripts.commands:prod"
+serve = "scripts.commands:serve"
+test = "scripts.commands:test"
+
+[project.optional-dependencies]
+dev = [
+  "black",
+  "flake8",
+  "isort",
+  "mypy",
+  "pytest",
+  "pytest-asyncio",
+]
+
+[tool.setuptools]
+packages = ["app", "scripts"]
+
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"
+asyncio_mode = "strict"
+filterwarnings = [
+  "ignore::pydantic.PydanticDeprecatedSince20",
+]
+markers = [
+  "integration: marks tests as integration tests",
+]
+
+[tool.mypy]
+plugins = ["sqlalchemy.ext.mypy.plugin"]
+
+[[tool.mypy.overrides]]
+ignore_errors = true
+module = "app.core.migrations.*"
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=61.0"]
