@@ -27,13 +27,9 @@ class Settings(BaseSettings):
     paths: PathSettings = PathSettings()
 
     # Настройки приложения
-    TITLE: str = "Equiply"
-    DESCRIPTION: str = (
-        "Equiply — это платформа для создания и управления рабочими пространствами, \
-        где команды могут эффективно сотрудничать и организовывать свою работу. \
-        Наша цель — предоставить пользователям мощные инструменты для создания таблиц, \
-        списков и других модулей, которые помогут оптимизировать процессы и повысить продуктивность."
-    )
+    TITLE: str = "VPN-BOT"
+    DESCRIPTION: str = ""
+    
     VERSION: str = "0.1.0"
     HOST: str = "0.0.0.0"
     PORT: int = 8000
@@ -83,7 +79,7 @@ class Settings(BaseSettings):
     USER_INACTIVE_TIMEOUT: int = 900  # 15 минут
 
     # Настройки OAuth
-    OAUTH_SUCCESS_REDIRECT_URI: str = "https://equiply.ru"
+    OAUTH_SUCCESS_REDIRECT_URI: str = "https://domain.ru"
     OAUTH_CALLBACK_BASE_URL: str = "api/v1/oauth/{provider}/callback"
     OAUTH_PROVIDERS: Dict[str, Dict[str, str | int]] = {
         "yandex": {
@@ -116,13 +112,13 @@ class Settings(BaseSettings):
     }
 
     # Настройки почты
-    VERIFICATION_URL: str = "https://api.equiply.ru/api/v1/register/verify-email/"
-    PASSWORD_RESET_URL: str = "https://api.equiply.ru/api/v1/auth/reset-password/"
-    # PASSWORD_RESET_URL: str = "https://equiply.ru/reset-password?token="
-    LOGIN_URL: str = "https://api.equiply.ru/api/v1/auth"
-    SMTP_SERVER: str = "mail.equiply.ru"
+    VERIFICATION_URL: str = "https://api.domain.ru/api/v1/register/verify-email/"
+    PASSWORD_RESET_URL: str = "https://api.domain.ru/api/v1/auth/reset-password/"
+    # PASSWORD_RESET_URL: str = "https://domain.ru/reset-password?token="
+    LOGIN_URL: str = "https://api.domain.ru/api/v1/auth"
+    SMTP_SERVER: str = "mail.domain.ru"
     SMTP_PORT: int = 587
-    SENDER_EMAIL: str = "noreply@equiply.ru"
+    SENDER_EMAIL: str = "noreply@domain.ru"
     SMTP_USERNAME: str = "admin"
     SMTP_PASSWORD: SecretStr
 
@@ -248,7 +244,7 @@ class Settings(BaseSettings):
     AWS_SERVICE_NAME: str = "s3"
     AWS_REGION: str = "ru-central1"
     AWS_ENDPOINT: str
-    AWS_BUCKET_NAME: str = "crm-bucket"
+    AWS_BUCKET_NAME: str = "vpn-bucket"
     AWS_ACCESS_KEY_ID: SecretStr
     AWS_SECRET_ACCESS_KEY: SecretStr
 

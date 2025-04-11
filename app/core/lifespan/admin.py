@@ -11,7 +11,7 @@ logger = logging.getLogger("app.lifecycle.admin")
 async def initialize_admin(app: FastAPI):
     """Инициализация администратора при старте приложения"""
 
-    from app.core.dependencies.container import container
+    from shared.core.dependencies.container import container
     from shared.core.settings import settings
     from app.services.v1.admin.service import AdminInitService
 

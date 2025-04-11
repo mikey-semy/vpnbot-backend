@@ -1,6 +1,6 @@
 from redis import Redis, from_url
 
-from app.core.settings import Config, settings
+from shared.core.settings import Config, settings
 
 from .base import BaseClient, BaseContextManager
 
